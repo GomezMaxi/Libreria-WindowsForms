@@ -1,0 +1,145 @@
+USE [Libreria]
+GO
+/****** Object:  Table [dbo].[Autores]    Script Date: 25/11/2024 11:19:25 ******/
+SET DATEFORMAT YMD
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Autores](
+	[IdAutor] [int] IDENTITY(1,1) NOT NULL,
+	[Apellido] [nvarchar](50) NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Autores] PRIMARY KEY CLUSTERED 
+(
+	[IdAutor] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Editoriales]    Script Date: 25/11/2024 11:19:25 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Editoriales](
+	[IdEditorial] [int] IDENTITY(1,1) NOT NULL,
+	[Editorial] [nvarchar](50) NOT NULL,
+	[EmailContacto] [nvarchar](50) NOT NULL,
+	[Telefono] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Editoriales] PRIMARY KEY CLUSTERED 
+(
+	[IdEditorial] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Libros]    Script Date: 25/11/2024 11:19:25 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Libros](
+	[IdLibro] [int] IDENTITY(1,1) NOT NULL,
+	[Titulo] [nvarchar](50) NOT NULL,
+	[Idioma] [nvarchar](50) NOT NULL,
+	[IdAutor] [int] NOT NULL,
+	[IdEditorial] [int] NOT NULL,
+	[FechaEdicion] [smalldatetime] NOT NULL,
+	[NroPaginas] [int] NOT NULL,
+	[ISBN] [int] NOT NULL,
+	[Comentarios] [nvarchar](150) NULL,
+	[IdTema] [int] NOT NULL,
+	[Disponible] [bit] NOT NULL,
+	[Precio] [float] NOT NULL,
+ CONSTRAINT [PK_Libros] PRIMARY KEY CLUSTERED 
+(
+	[IdLibro] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Temas]    Script Date: 25/11/2024 11:19:25 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Temas](
+	[IdTema] [int] IDENTITY(1,1) NOT NULL,
+	[Tema] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_Temas] PRIMARY KEY CLUSTERED 
+(
+	[IdTema] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Autores] ON 
+GO
+INSERT [dbo].[Autores] ([IdAutor], [Apellido], [Nombre]) VALUES (2, N'De Maio', N'Norberto')
+GO
+INSERT [dbo].[Autores] ([IdAutor], [Apellido], [Nombre]) VALUES (3, N'Salvarrey', N'Nicolas Harry')
+GO
+INSERT [dbo].[Autores] ([IdAutor], [Apellido], [Nombre]) VALUES (4, N'Boiselle', N'Gabriele')
+GO
+INSERT [dbo].[Autores] ([IdAutor], [Apellido], [Nombre]) VALUES (5, N'Riera', N'Elizabet')
+GO
+INSERT [dbo].[Autores] ([IdAutor], [Apellido], [Nombre]) VALUES (6, N'Stewart', N'Amy')
+GO
+INSERT [dbo].[Autores] ([IdAutor], [Apellido], [Nombre]) VALUES (7, N'Cane', N'Lucia')
+GO
+INSERT [dbo].[Autores] ([IdAutor], [Apellido], [Nombre]) VALUES (8, N'Dali', N'Salvador')
+GO
+SET IDENTITY_INSERT [dbo].[Autores] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Editoriales] ON 
+GO
+INSERT [dbo].[Editoriales] ([IdEditorial], [Editorial], [EmailContacto], [Telefono]) VALUES (2, N'Albatros', N'alba@albatros.com', N'011-45646213')
+GO
+INSERT [dbo].[Editoriales] ([IdEditorial], [Editorial], [EmailContacto], [Telefono]) VALUES (3, N'Omega', N'ome@omega.com.ar', N'011-54635465')
+GO
+INSERT [dbo].[Editoriales] ([IdEditorial], [Editorial], [EmailContacto], [Telefono]) VALUES (4, N'Eudeba', N'eu@hotmail.com', N'0341-4545445')
+GO
+INSERT [dbo].[Editoriales] ([IdEditorial], [Editorial], [EmailContacto], [Telefono]) VALUES (5, N'Acanto', N'aca@yahoo.com.ar', N'011-78989894')
+GO
+INSERT [dbo].[Editoriales] ([IdEditorial], [Editorial], [EmailContacto], [Telefono]) VALUES (7, N'Ciccus', N'ci@ciccus.com.ar', N'0341-4333266')
+GO
+SET IDENTITY_INSERT [dbo].[Editoriales] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Libros] ON 
+GO
+INSERT [dbo].[Libros] ([IdLibro], [Titulo], [Idioma], [IdAutor], [IdEditorial], [FechaEdicion], [NroPaginas], [ISBN], [Comentarios], [IdTema], [Disponible], [Precio]) VALUES (3, N'Introduccion a Laravel', N'Castellano', 2, 3, CAST(N'2018-01-03T00:00:00' AS SmallDateTime), 300, 1000, NULL, 2, 1, 800)
+GO
+INSERT [dbo].[Libros] ([IdLibro], [Titulo], [Idioma], [IdAutor], [IdEditorial], [FechaEdicion], [NroPaginas], [ISBN], [Comentarios], [IdTema], [Disponible], [Precio]) VALUES (5, N'Autocad 2017', N'Castellano', 4, 3, CAST(N'2017-01-04T00:00:00' AS SmallDateTime), 550, 9500, NULL, 2, 0, 490)
+GO
+INSERT [dbo].[Libros] ([IdLibro], [Titulo], [Idioma], [IdAutor], [IdEditorial], [FechaEdicion], [NroPaginas], [ISBN], [Comentarios], [IdTema], [Disponible], [Precio]) VALUES (8, N'Blazor Net 8', N'Ingles', 2, 5, CAST(N'2024-07-06T00:00:00' AS SmallDateTime), 400, 2541, NULL, 2, 1, 1500)
+GO
+INSERT [dbo].[Libros] ([IdLibro], [Titulo], [Idioma], [IdAutor], [IdEditorial], [FechaEdicion], [NroPaginas], [ISBN], [Comentarios], [IdTema], [Disponible], [Precio]) VALUES (9, N'JS Avanzado', N'Ingles', 3, 4, CAST(N'2024-05-12T00:00:00' AS SmallDateTime), 350, 3255, NULL, 2, 1, 980)
+GO
+SET IDENTITY_INSERT [dbo].[Libros] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Temas] ON 
+GO
+INSERT [dbo].[Temas] ([IdTema], [Tema]) VALUES (1, N'Electronica')
+GO
+INSERT [dbo].[Temas] ([IdTema], [Tema]) VALUES (2, N'Computacion')
+GO
+INSERT [dbo].[Temas] ([IdTema], [Tema]) VALUES (3, N'Biologia')
+GO
+INSERT [dbo].[Temas] ([IdTema], [Tema]) VALUES (4, N'Astronomia')
+GO
+INSERT [dbo].[Temas] ([IdTema], [Tema]) VALUES (5, N'Mecanica')
+GO
+SET IDENTITY_INSERT [dbo].[Temas] OFF
+GO
+ALTER TABLE [dbo].[Libros]  WITH CHECK ADD  CONSTRAINT [FK_Libros_Autores] FOREIGN KEY([IdAutor])
+REFERENCES [dbo].[Autores] ([IdAutor])
+GO
+ALTER TABLE [dbo].[Libros] CHECK CONSTRAINT [FK_Libros_Autores]
+GO
+ALTER TABLE [dbo].[Libros]  WITH CHECK ADD  CONSTRAINT [FK_Libros_Editoriales] FOREIGN KEY([IdEditorial])
+REFERENCES [dbo].[Editoriales] ([IdEditorial])
+GO
+ALTER TABLE [dbo].[Libros] CHECK CONSTRAINT [FK_Libros_Editoriales]
+GO
+ALTER TABLE [dbo].[Libros]  WITH CHECK ADD  CONSTRAINT [FK_Libros_Temas] FOREIGN KEY([IdTema])
+REFERENCES [dbo].[Temas] ([IdTema])
+GO
+ALTER TABLE [dbo].[Libros] CHECK CONSTRAINT [FK_Libros_Temas]
+GO
