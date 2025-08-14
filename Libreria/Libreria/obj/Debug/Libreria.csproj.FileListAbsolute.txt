@@ -1,0 +1,11 @@
+C:\Users\Maxi\source\repos\Libreria\Libreria\bin\Debug\Libreria.exe.config
+C:\Users\Maxi\source\repos\Libreria\Libreria\bin\Debug\Libreria.exe
+C:\Users\Maxi\source\repos\Libreria\Libreria\bin\Debug\Libreria.pdb
+C:\Users\Maxi\source\repos\Libreria\Libreria\obj\Debug\Libreria.csproj.AssemblyReference.cache
+C:\Users\Maxi\source\repos\Libreria\Libreria\obj\Debug\Libreria.Presentacion.resources
+C:\Users\Maxi\source\repos\Libreria\Libreria\obj\Debug\Libreria.Properties.Resources.resources
+C:\Users\Maxi\source\repos\Libreria\Libreria\obj\Debug\Libreria.csproj.GenerateResource.cache
+C:\Users\Maxi\source\repos\Libreria\Libreria\obj\Debug\Libreria.csproj.CoreCompileInputs.cache
+C:\Users\Maxi\source\repos\Libreria\Libreria\obj\Debug\Libreria.exe
+C:\Users\Maxi\source\repos\Libreria\Libreria\obj\Debug\Libreria.pdb
+C:\Users\Maxi\source\repos\Libreria\Libreria\obj\Debug\Libreria.Form1.resources
